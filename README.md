@@ -1,12 +1,12 @@
 # Shipping Estimator - B2B E-Commerce Shipping Charge Calculator
 
-A production-quality Spring Boot backend service that calculates shipping charges for a B2B e-commerce marketplace serving Kirana stores.
+A Spring Boot REST API service that calculates shipping charges for a B2B e-commerce marketplace connecting sellers with Kirana stores. It determines the nearest warehouse, selects the optimal transport mode based on distance, and computes shipping charges considering product weight and delivery speed.
 
 **GitHub:** [https://github.com/rajkhatri398/E-Commerce-Shipping-Charge-Estimator](https://github.com/rajkhatri398/E-Commerce-Shipping-Charge-Estimator)
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Architecture Overview](#architecture-overview)
 - [Tech Stack](#tech-stack)
@@ -22,7 +22,7 @@ A production-quality Spring Boot backend service that calculates shipping charge
 
 ---
 
-## 🏗️ Architecture Overview
+## Architecture Overview
 
 The application follows a **layered architecture** with clear separation of concerns:
 
@@ -57,7 +57,7 @@ The application follows a **layered architecture** with clear separation of conc
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Technology        | Purpose                           |
 |-------------------|-----------------------------------|
@@ -75,7 +75,7 @@ The application follows a **layered architecture** with clear separation of conc
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 shipping-estimator/
@@ -150,7 +150,7 @@ shipping-estimator/
 
 ---
 
-## 📡 API Documentation
+## API Documentation
 
 ### Health & Root
 
@@ -223,7 +223,7 @@ Combines nearest warehouse lookup and shipping charge calculation in one call.
 
 **Endpoint:** `POST /api/v1/shipping-charge/calculate`
 
-> ⚠️ **Note:** This is a POST endpoint. It cannot be tested by opening the URL in a browser (which sends GET). Use cURL, Postman, or the browser console (see [Try It in Browser](#try-it-in-browser)).
+> **Note:** This is a POST endpoint. It cannot be tested by opening the URL in a browser (which sends GET). Use cURL, Postman, or the browser console (see [Try It in Browser](#try-it-in-browser)).
 
 **Request Body:**
 ```json
@@ -258,7 +258,7 @@ Combines nearest warehouse lookup and shipping charge calculation in one call.
 
 ---
 
-## 🔗 Try It in Browser
+## Try It in Browser
 
 Once the application is running on `http://localhost:8080`, click any of these links to test:
 
@@ -315,7 +315,7 @@ fetch('http://localhost:8080/api/v1/shipping-charge/calculate', {
 
 ---
 
-## 📏 Business Rules
+## Business Rules
 
 ### Transport Mode Selection (based on distance)
 
@@ -344,7 +344,7 @@ d = R × c    (where R = 6371 km)
 
 ---
 
-## 🎨 Design Patterns
+## Design Patterns
 
 ### 1. Strategy Pattern
 
@@ -370,7 +370,7 @@ Used via Lombok's `@Builder` for clean object construction across entities and D
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 ### Prerequisites
 
@@ -382,7 +382,7 @@ Used via Lombok's `@Builder` for clean object construction across entities and D
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/rajkhatri398/E-Commerce-Shipping-Charge-Estimator.git
-   cd shipping-estimator
+   cd E-Commerce-Shipping-Charge-Estimator
    ```
 
 2. **Build the project:**
@@ -420,7 +420,7 @@ curl -X POST "http://localhost:8080/api/v1/shipping-charge/calculate" \
 
 ---
 
-## 🧪 Testing
+## Testing
 
 ### Run all tests:
 ```bash
@@ -441,7 +441,7 @@ mvn test
 
 ---
 
-## 📊 Sample Data
+## Sample Data
 
 The application auto-loads sample data on startup via `DataLoader`:
 
@@ -489,7 +489,7 @@ The application auto-loads sample data on startup via `DataLoader`:
 
 ---
 
-## ⚠️ Error Handling
+## Error Handling
 
 All errors return a consistent JSON structure:
 
@@ -519,6 +519,6 @@ All errors return a consistent JSON structure:
 
 ---
 
-## 📜 License
+## Author
 
-This project is built for the Jumbotail Backend Engineering assignment.
+Built by **Raj Khatri** for the Jumbotail Backend Engineering assignment.

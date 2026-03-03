@@ -4,7 +4,6 @@ import lombok.*;
 
 /**
  * Response DTO for the nearest warehouse API.
- * Contains warehouse ID and its geo-location.
  */
 @Data
 @NoArgsConstructor

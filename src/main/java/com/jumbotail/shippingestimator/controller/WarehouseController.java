@@ -8,9 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * REST Controller for warehouse-related APIs.
- *
- * <p>Provides endpoints to find the nearest warehouse for a seller.</p>
+ * REST controller for warehouse-related APIs.
  */
 @Slf4j
 @RestController
@@ -22,12 +20,6 @@ public class WarehouseController {
 
     /**
      * API 1: Get the nearest warehouse for a seller.
-     *
-     * <p>Endpoint: GET /api/v1/warehouse/nearest?sellerId=123&productId=456</p>
-     *
-     * @param sellerId  the seller's ID
-     * @param productId the product's ID
-     * @return the nearest warehouse with its location
      */
     @GetMapping("/nearest")
     public ResponseEntity<NearestWarehouseResponse> getNearestWarehouse(

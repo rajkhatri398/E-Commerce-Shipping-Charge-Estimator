@@ -15,9 +15,6 @@ import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-/**
- * Unit tests for WarehouseController using MockMvc.
- */
 @WebMvcTest(WarehouseController.class)
 class WarehouseControllerTest {
 

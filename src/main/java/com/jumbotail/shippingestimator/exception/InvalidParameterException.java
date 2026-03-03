@@ -1,8 +1,7 @@
 package com.jumbotail.shippingestimator.exception;
 
 /**
- * Exception thrown when an invalid parameter is provided to an API.
- * Examples: invalid delivery speed, missing required parameters.
+ * Thrown when an invalid parameter value is provided.
  */
 public class InvalidParameterException extends RuntimeException {
 

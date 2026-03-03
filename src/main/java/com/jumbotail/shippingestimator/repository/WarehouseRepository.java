@@ -12,10 +12,5 @@ import java.util.List;
 @Repository
 public interface WarehouseRepository extends JpaRepository<Warehouse, Long> {
 
-    /**
-     * Find all active warehouses.
-     *
-     * @return list of active warehouses
-     */
     List<Warehouse> findByActiveTrue();
 }

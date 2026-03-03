@@ -4,14 +4,12 @@ import com.jumbotail.shippingestimator.strategy.*;
 import org.springframework.stereotype.Component;
 
 /**
- * Factory class for selecting the appropriate transport strategy based on distance.
+ * Factory for selecting the transport strategy based on delivery distance.
  *
- * <p>Factory Pattern: Encapsulates the creation logic for TransportStrategy instances.
- * The transport mode is determined by the distance between warehouse and customer:</p>
  * <ul>
- *     <li>0–100 km   → Mini Van (3 Rs/km/kg)</li>
- *     <li>100–500 km → Truck    (2 Rs/km/kg)</li>
- *     <li>500+ km    → Aeroplane (1 Rs/km/kg)</li>
+ *   <li>0–100 km   → Mini Van (3 Rs/km/kg)</li>
+ *   <li>100–500 km → Truck   (2 Rs/km/kg)</li>
+ *   <li>500+ km    → Aeroplane (1 Rs/km/kg)</li>
  * </ul>
  */
 @Component
@@ -30,10 +28,7 @@ public class TransportModeFactory {
     }
 
     /**
-     * Select the transport strategy based on the delivery distance.
-     *
-     * @param distanceKm the distance in kilometers
-     * @return the appropriate TransportStrategy
+     * Select the transport strategy based on distance.
      */
     public TransportStrategy getStrategy(double distanceKm) {
         if (distanceKm <= 100) {

@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 /**
- * Health check and root endpoint controller.
- * Provides a landing page for the API and a health check endpoint.
+ * Health check and service info controller.
  */
 @RestController
 public class HealthController {

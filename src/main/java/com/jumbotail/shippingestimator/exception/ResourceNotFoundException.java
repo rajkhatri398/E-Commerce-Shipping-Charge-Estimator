@@ -1,8 +1,7 @@
 package com.jumbotail.shippingestimator.exception;
 
 /**
- * Exception thrown when a requested resource (Customer, Seller, Product, Warehouse)
- * is not found in the database.
+ * Thrown when a requested entity is not found in the database.
  */
 public class ResourceNotFoundException extends RuntimeException {
 

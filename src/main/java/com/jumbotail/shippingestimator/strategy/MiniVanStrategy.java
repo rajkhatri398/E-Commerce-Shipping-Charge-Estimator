@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * Mini Van transport strategy for short-distance deliveries (0–100 km).
- * Rate: 3 Rs per km per kg.
+ * Rate: 3 Rs/km/kg.
  */
 @Component
 public class MiniVanStrategy implements TransportStrategy {

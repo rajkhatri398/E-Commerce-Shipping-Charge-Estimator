@@ -4,8 +4,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 /**
- * Request DTO for the POST /api/v1/shipping-charge/calculate endpoint.
- * Combines seller, customer, product, and delivery speed to compute shipping.
+ * Request DTO for the end-to-end shipping charge calculation API.
  */
 @Data
 @NoArgsConstructor

@@ -10,10 +10,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Unit tests for TransportModeFactory.
- * Verifies correct transport strategy is selected based on distance.
- */
 class TransportModeFactoryTest {
 
     private TransportModeFactory factory;
@@ -86,7 +82,7 @@ class TransportModeFactoryTest {
         assertInstanceOf(AeroplaneStrategy.class, strategy);
     }
 
-    // ---- Charge calculation tests ----
+    // Charge calculation tests
 
     @Test
     @DisplayName("MiniVan: 50 km × 2 kg = 3×50×2 = 300 Rs")

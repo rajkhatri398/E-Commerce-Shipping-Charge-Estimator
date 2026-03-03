@@ -28,9 +28,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyDouble;
 import static org.mockito.Mockito.*;
 
-/**
- * Unit tests for ShippingChargeServiceImpl.
- */
 @ExtendWith(MockitoExtension.class)
 class ShippingChargeServiceTest {
 
@@ -118,11 +115,6 @@ class ShippingChargeServiceTest {
     @Test
     @DisplayName("Express surcharge should be 1.2 per kg extra")
     void testExpressSurchargeCalculation() {
-        // Use a warehouse and customer far apart to have a predictable MiniVan charge
-        // Nearby: distance ≈ 4.5 km, weight = 5 kg
-        // MiniVan: 3 * 4.5 * 5 = 67.5
-        // Standard: 10 + 67.5 = 77.5
-        // Express: 10 + (1.2 * 5) + 67.5 = 10 + 6 + 67.5 = 83.5
         when(warehouseRepository.findById(1L)).thenReturn(Optional.of(warehouse));
         when(customerRepository.findById(1L)).thenReturn(Optional.of(customer));
         when(productRepository.findById(1L)).thenReturn(Optional.of(product));
@@ -204,11 +196,10 @@ class ShippingChargeServiceTest {
     @Test
     @DisplayName("Truck strategy should be used for medium distance")
     void testTruckStrategySelection() {
-        // Create customer far from warehouse (medium distance)
         Customer farCustomer = Customer.builder()
                 .id(2L)
                 .name("Far Store")
-                .latitude(17.3850)  // Hyderabad
+                .latitude(17.3850)
                 .longitude(78.4867)
                 .phone("9847123456")
                 .build();
@@ -230,7 +221,7 @@ class ShippingChargeServiceTest {
         Customer veryFarCustomer = Customer.builder()
                 .id(3L)
                 .name("Very Far Store")
-                .latitude(28.7041)  // Delhi
+                .latitude(28.7041)
                 .longitude(77.1025)
                 .phone("9847123456")
                 .build();

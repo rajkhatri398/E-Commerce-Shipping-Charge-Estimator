@@ -14,10 +14,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 /**
- * Sample data loader that populates the H2 database on application startup.
- *
- * <p>Creates sample customers, sellers, products, and warehouses
- * to enable testing without manual data insertion.</p>
+ * Populates the H2 database with sample data on application startup.
  */
 @Slf4j
 @Component
@@ -147,7 +144,7 @@ public class DataLoader implements CommandLineRunner {
     }
 
     private void loadProducts() {
-        // Products for Nestle Seller (sellerId=1)
+        // Nestle Seller (sellerId=1)
         productRepository.save(Product.builder()
                 .name("Maggie 500g Packet")
                 .sellerId(1L)
@@ -172,7 +169,7 @@ public class DataLoader implements CommandLineRunner {
                 .description("Nescafe Classic instant coffee 200g jar")
                 .build());
 
-        // Products for Rice Seller (sellerId=2)
+        // Rice Seller (sellerId=2)
         productRepository.save(Product.builder()
                 .name("Rice Bag 10Kg")
                 .sellerId(2L)
@@ -197,7 +194,7 @@ public class DataLoader implements CommandLineRunner {
                 .description("Premium Basmati rice 25kg bag")
                 .build());
 
-        // Products for Sugar Seller (sellerId=3)
+        // Sugar Seller (sellerId=3)
         productRepository.save(Product.builder()
                 .name("Sugar Bag 25Kg")
                 .sellerId(3L)
@@ -210,7 +207,7 @@ public class DataLoader implements CommandLineRunner {
                 .description("Refined white sugar 25kg bag")
                 .build());
 
-        // Products for Spice Seller (sellerId=4)
+        // Spice Seller (sellerId=4)
         productRepository.save(Product.builder()
                 .name("Turmeric Powder 1Kg")
                 .sellerId(4L)

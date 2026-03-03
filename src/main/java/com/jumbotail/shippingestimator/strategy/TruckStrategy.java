@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * Truck transport strategy for medium-distance deliveries (100–500 km).
- * Rate: 2 Rs per km per kg.
+ * Rate: 2 Rs/km/kg.
  */
 @Component
 public class TruckStrategy implements TransportStrategy {

@@ -4,8 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 /**
- * Entity representing a Warehouse in the marketplace network.
- * Warehouses are distribution points located across the country.
+ * Entity representing a Warehouse in the distribution network.
  */
 @Entity
 @Table(name = "warehouses")
@@ -37,11 +36,9 @@ public class Warehouse {
     @Column(length = 50)
     private String state;
 
-    /** Maximum storage capacity in cubic meters */
     @Column(name = "capacity_cbm")
     private Double capacityCbm;
 
-    /** Whether the warehouse is currently active */
     @Column(nullable = false)
     @Builder.Default
     private Boolean active = true;

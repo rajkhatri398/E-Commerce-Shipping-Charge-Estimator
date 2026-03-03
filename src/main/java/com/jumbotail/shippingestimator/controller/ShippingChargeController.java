@@ -11,10 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * REST Controller for shipping charge calculation APIs.
- *
- * <p>Provides endpoints to calculate shipping charges based on
- * warehouse-customer distance, product weight, and delivery speed.</p>
+ * REST controller for shipping charge calculation APIs.
  */
 @Slf4j
 @RestController
@@ -25,15 +22,7 @@ public class ShippingChargeController {
     private final ShippingChargeService shippingChargeService;
 
     /**
-     * API 2: Get shipping charge from a warehouse to a customer.
-     *
-     * <p>Endpoint: GET /api/v1/shipping-charge?warehouseId=1&customerId=10&productId=5&deliverySpeed=standard</p>
-     *
-     * @param warehouseId   the source warehouse ID
-     * @param customerId    the destination customer ID
-     * @param productId     the product ID (for weight calculation)
-     * @param deliverySpeed delivery speed: "standard" or "express"
-     * @return the calculated shipping charge
+     * API 2: Calculate shipping charge from a warehouse to a customer.
      */
     @GetMapping
     public ResponseEntity<ShippingChargeResponse> getShippingCharge(
@@ -49,13 +38,8 @@ public class ShippingChargeController {
     }
 
     /**
-     * API 3: Calculate end-to-end shipping charge.
-     * Finds the nearest warehouse and calculates the shipping charge in one call.
-     *
-     * <p>Endpoint: POST /api/v1/shipping-charge/calculate</p>
-     *
-     * @param request the shipping calculation request body
-     * @return the shipping charge along with nearest warehouse details
+     * API 3: End-to-end shipping charge calculation.
+     * Finds the nearest warehouse and computes the shipping charge in one call.
      */
     @PostMapping("/calculate")
     public ResponseEntity<ShippingCalculateResponse> calculateShippingCharge(

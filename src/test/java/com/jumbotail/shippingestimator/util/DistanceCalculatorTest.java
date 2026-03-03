@@ -5,9 +5,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Unit tests for the Haversine distance calculation utility.
- */
 class DistanceCalculatorTest {
 
     @Test

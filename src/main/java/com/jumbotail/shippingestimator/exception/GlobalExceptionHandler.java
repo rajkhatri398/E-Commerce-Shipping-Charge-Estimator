@@ -18,17 +18,12 @@ import java.time.LocalDateTime;
 import java.util.stream.Collectors;
 
 /**
- * Global exception handler for the entire application.
- * Uses @ControllerAdvice to catch exceptions thrown from any controller
- * and return consistent, structured error responses.
+ * Global exception handler providing consistent error responses across all endpoints.
  */
 @Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    /**
-     * Handle resource not found exceptions (404).
-     */
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleResourceNotFound(
             ResourceNotFoundException ex, HttpServletRequest request) {
@@ -43,9 +38,6 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
 
-    /**
-     * Handle invalid parameter exceptions (400).
-     */
     @ExceptionHandler(InvalidParameterException.class)
     public ResponseEntity<ErrorResponse> handleInvalidParameter(
             InvalidParameterException ex, HttpServletRequest request) {
@@ -60,9 +52,6 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
 
-    /**
-     * Handle no warehouse available exceptions (404).
-     */
     @ExceptionHandler(NoWarehouseAvailableException.class)
     public ResponseEntity<ErrorResponse> handleNoWarehouseAvailable(
             NoWarehouseAvailableException ex, HttpServletRequest request) {
@@ -77,9 +66,6 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
 
-    /**
-     * Handle validation errors from @Valid annotations (400).
-     */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorResponse> handleValidationErrors(
             MethodArgumentNotValidException ex, HttpServletRequest request) {
@@ -97,9 +83,6 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
 
-    /**
-     * Handle missing request parameters (400).
-     */
     @ExceptionHandler(MissingServletRequestParameterException.class)
     public ResponseEntity<ErrorResponse> handleMissingParams(
             MissingServletRequestParameterException ex, HttpServletRequest request) {
@@ -114,9 +97,6 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
 
-    /**
-     * Handle type mismatch in request parameters (400).
-     */
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     public ResponseEntity<ErrorResponse> handleTypeMismatch(
             MethodArgumentTypeMismatchException ex, HttpServletRequest request) {
@@ -133,10 +113,6 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
 
-    /**
-     * Handle HTTP method not supported (405).
-     * E.g., sending GET to a POST-only endpoint.
-     */
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     public ResponseEntity<ErrorResponse> handleMethodNotAllowed(
             HttpRequestMethodNotSupportedException ex, HttpServletRequest request) {
@@ -153,9 +129,6 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(error, HttpStatus.METHOD_NOT_ALLOWED);
     }
 
-    /**
-     * Handle requests to non-existent resources/paths (404).
-     */
     @ExceptionHandler({NoResourceFoundException.class, NoHandlerFoundException.class})
     public ResponseEntity<ErrorResponse> handleNoResourceFound(
             Exception ex, HttpServletRequest request) {
@@ -170,9 +143,6 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
 
-    /**
-     * Catch-all handler for any unhandled exceptions (500).
-     */
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleGenericException(
             Exception ex, HttpServletRequest request) {

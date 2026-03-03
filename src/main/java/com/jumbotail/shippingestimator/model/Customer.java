@@ -5,7 +5,6 @@ import lombok.*;
 
 /**
  * Entity representing a Customer (Kirana Store).
- * Stores customer details including geo-location for shipping calculations.
  */
 @Entity
 @Table(name = "customers")

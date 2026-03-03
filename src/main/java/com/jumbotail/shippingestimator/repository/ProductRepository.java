@@ -12,11 +12,5 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-    /**
-     * Find all products belonging to a specific seller.
-     *
-     * @param sellerId the seller's ID
-     * @return list of products for the seller
-     */
     List<Product> findBySellerId(Long sellerId);
 }

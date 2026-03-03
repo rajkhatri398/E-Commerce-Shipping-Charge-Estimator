@@ -3,7 +3,7 @@ package com.jumbotail.shippingestimator.dto;
 import lombok.*;
 
 /**
- * DTO representing warehouse geo-location coordinates.
+ * DTO representing warehouse geo-location.
  */
 @Data
 @NoArgsConstructor
@@ -13,7 +13,6 @@ public class WarehouseLocationDto {
 
     private Double lat;
 
-    /** Using 'lng' in JSON output; mapped from longitude */
     @com.fasterxml.jackson.annotation.JsonProperty("long")
     private Double lng;
 }

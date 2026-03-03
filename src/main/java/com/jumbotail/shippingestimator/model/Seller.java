@@ -5,7 +5,6 @@ import lombok.*;
 
 /**
  * Entity representing a Seller on the marketplace.
- * Sellers can list products and drop them at the nearest warehouse.
  */
 @Entity
 @Table(name = "sellers")

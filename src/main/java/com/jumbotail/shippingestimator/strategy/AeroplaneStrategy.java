@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * Aeroplane transport strategy for long-distance deliveries (500+ km).
- * Rate: 1 Rs per km per kg.
+ * Rate: 1 Rs/km/kg.
  */
 @Component
 public class AeroplaneStrategy implements TransportStrategy {

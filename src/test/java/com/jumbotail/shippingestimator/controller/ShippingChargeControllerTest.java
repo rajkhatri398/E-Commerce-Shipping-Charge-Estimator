@@ -18,9 +18,6 @@ import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-/**
- * Unit tests for ShippingChargeController using MockMvc.
- */
 @WebMvcTest(ShippingChargeController.class)
 class ShippingChargeControllerTest {
 
@@ -124,12 +121,10 @@ class ShippingChargeControllerTest {
     @Test
     @DisplayName("POST /api/v1/shipping-charge/calculate - missing fields should return 400")
     void testCalculateMissingFields() throws Exception {
-        // Missing all required fields
-        String emptyRequest = "{}";
-
+        // Missing required fields
         mockMvc.perform(post("/api/v1/shipping-charge/calculate")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(emptyRequest))
+                        .content("{}"))
                 .andExpect(status().isBadRequest());
     }
 
@@ -138,7 +133,6 @@ class ShippingChargeControllerTest {
     void testCalculatePartialFields() throws Exception {
         ShippingCalculateRequest request = ShippingCalculateRequest.builder()
                 .sellerId(1L)
-                // Missing customerId, productId, deliverySpeed
                 .build();
 
         mockMvc.perform(post("/api/v1/shipping-charge/calculate")

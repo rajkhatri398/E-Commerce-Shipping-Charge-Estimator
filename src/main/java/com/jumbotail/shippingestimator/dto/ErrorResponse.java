@@ -6,7 +6,7 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 /**
- * Standard error response DTO for consistent API error handling.
+ * Standard error response DTO.
  */
 @Data
 @NoArgsConstructor

@@ -7,16 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Cache configuration for the application.
- *
- * <p>Enables Spring Cache abstraction and configures a simple in-memory
- * cache manager using ConcurrentMapCacheManager.</p>
- *
- * <p>Caches:
- * <ul>
- *   <li><b>nearestWarehouse</b> – Caches nearest warehouse results for seller-product pairs</li>
- * </ul>
- * </p>
+ * Configures in-memory caching for nearest warehouse lookups.
  */
 @Configuration
 @EnableCaching

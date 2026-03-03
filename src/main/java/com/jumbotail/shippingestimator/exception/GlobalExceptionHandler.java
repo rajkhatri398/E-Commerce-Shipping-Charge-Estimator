@@ -10,6 +10,7 @@ import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.servlet.NoHandlerFoundException;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
 
@@ -130,6 +131,26 @@ public class GlobalExceptionHandler {
                 .timestamp(LocalDateTime.now())
                 .build();
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
+
+    /**
+     * Handle HTTP method not supported (405).
+     * E.g., sending GET to a POST-only endpoint.
+     */
+    @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
+    public ResponseEntity<ErrorResponse> handleMethodNotAllowed(
+            HttpRequestMethodNotSupportedException ex, HttpServletRequest request) {
+        String supported = String.join(", ", ex.getSupportedMethods() != null ? ex.getSupportedMethods() : new String[]{});
+        String message = String.format("Method '%s' is not supported for this endpoint. Supported: [%s]", ex.getMethod(), supported);
+        log.warn("Method not allowed: {} {}", ex.getMethod(), request.getRequestURI());
+        ErrorResponse error = ErrorResponse.builder()
+                .status(HttpStatus.METHOD_NOT_ALLOWED.value())
+                .error("Method Not Allowed")
+                .message(message)
+                .path(request.getRequestURI())
+                .timestamp(LocalDateTime.now())
+                .build();
+        return new ResponseEntity<>(error, HttpStatus.METHOD_NOT_ALLOWED);
     }
 
     /**
